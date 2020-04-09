@@ -1,14 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
-
-const HomeScreen = () => {
+ 
+const HomeScreen = ({ navigation }) => {
   return <View style={styles.backgroundStyle}>
   <Image style={styles.imageStyle}source={require('../../assets/applogo.png')}/>
   <Text style={styles.textStyleOne}>The Easy Shopping Solution</Text>
   <Text style={styles.textStyleTwo}>The shop is now in your hand!</Text>
   <Image style={styles.iconStyle} source={require('../../assets/shoppingcart.jpg')}/>
-  <Button color='white' title='User Login Here'/>
-  <Button title='Create Account'/>  
+  <Button
+  onPress={() => navigation.navigate('Login')}
+  color='#873b51' 
+  title='User Login Here'/>
+  <Button color='#873b51' title='Create Account'/>
 
   </View>
 };
@@ -35,12 +38,12 @@ textStyleTwo: {
 	fontSize: 20,
 	fontWeight: 'bold'
 },
+
 iconStyle: {
 	height: 150,
 	width: 150,
 	alignSelf: 'center'
 }
-
 });
 
 export default HomeScreen;
